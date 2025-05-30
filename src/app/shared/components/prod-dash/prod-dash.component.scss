@@ -1,0 +1,29 @@
+.list-group-item{
+    cursor: pointer;
+}
+
+.product-list {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.product-item {
+  margin-bottom: 10px;
+  padding: 15px 20px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  font-weight: 500;
+  color: #333;
+}
+
+.product-item:hover {
+  background-color: #f0f8ff;
+  box-shadow: 0 4px 16px rgba(0, 123, 255, 0.2);
+  color: #007bff;
+  transform: translateY(-2px);
+}

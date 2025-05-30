@@ -1,0 +1,34 @@
+<mat-card class="main_card">
+  <mat-card-header class="authgurd">
+    <mat-card-title>{{ Iseditmode ? "Update Product" : "Add Product" }} </mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <form [formGroup]="prodform" (ngSubmit)="onsubmit()">
+      <mat-form-field class="w-100" appearance="outline">
+        <mat-label>Product Name</mat-label>
+        <input type="text" formControlName="pName" matInput />
+      </mat-form-field>
+      <mat-form-field class="w-100" appearance="outline">
+        <mat-label>Product Status</mat-label>
+        <mat-select formControlName="pStatus">
+          <mat-option value="delivered">delivered</mat-option>
+          <mat-option value="dispatch">dispatch</mat-option>
+          <mat-option value="inprogress">inprogress</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="w-100" appearance="outline">
+        <mat-label> canReturn Product </mat-label>
+        <mat-select formControlName="canReturn">
+          <mat-option value="yes">Yes</mat-option>
+          <mat-option value="no">No</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <button mat-raised-button color="primary">
+        {{ Iseditmode ? "Update product" : "Add Products" }}
+      </button>
+    </form>
+
+  </mat-card-content>
+</mat-card>

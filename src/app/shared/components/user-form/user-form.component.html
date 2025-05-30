@@ -1,0 +1,30 @@
+
+
+<mat-card class="main_card">
+  <mat-card-header class="authgurd">
+    <mat-card-title>{{ Iseditmode ? "Update User" : "Add User" }} </mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <form [formGroup]="userForm" (ngSubmit)="onsubmit()">
+      <mat-form-field class="w-100" appearance="outline">
+        <mat-label>User Name</mat-label>
+        <input type="text" formControlName="userName" matInput />
+      </mat-form-field>
+      <mat-form-field class="w-100" appearance="outline">
+        <mat-label>User Role</mat-label>
+        <mat-select formControlName="userRole">
+          <mat-option value="Admin">Admin</mat-option>
+          <mat-option value="Candidate">Candidate</mat-option>
+          <mat-option value="SuperAdmin">Super Admin</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+       
+      <button mat-raised-button color="primary">
+        {{ Iseditmode ? "update product" : "Add Products" }}
+      </button>
+    </form>
+
+  </mat-card-content>
+</mat-card>

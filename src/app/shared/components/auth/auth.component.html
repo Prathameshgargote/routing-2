@@ -1,0 +1,67 @@
+<div>
+  <main class="main mt-5">
+    <mat-card class="main_card">
+      <mat-card-header class="authgurd">
+        <mat-card-title
+          >{{ alredyHaveAccount ? "Log In" : "Sign Up" }}
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <!-- sign Up form -->
+        <ng-container *ngIf="!alredyHaveAccount">
+          <form [formGroup]="SignUpFrom" (ngSubmit)="onSignUp()">
+            <mat-form-field class="w-100" appearance="outline">
+              <mat-label>Email</mat-label>
+              <input type="text" formControlName="email" matInput />
+              <mat-error
+                *ngIf="l['email'].touched && l['email'].hasError('required')"
+              >
+                Email Required Field</mat-error
+              >
+            </mat-form-field>
+            <mat-form-field class="w-100" appearance="outline">
+              <mat-label>Password</mat-label>
+              <input type="text" formControlName="password" matInput />
+              <mat-error
+                *ngIf="
+                  l['password'].touched && l['password'].hasError('required')
+                "
+              >
+                Password Required Field</mat-error
+              >
+            </mat-form-field>
+            <mat-form-field class="w-100" appearance="outline">
+              <mat-label>Select UserRole</mat-label>
+              <mat-select formControlName="userRole">
+                <mat-option value="buyer">buyer</mat-option>
+                <mat-option value="Admin">Admin</mat-option>
+                <mat-option value="superAdmin">Super Admin</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <button mat-raised-button color="primary">Sign Up</button>
+          </form>
+        </ng-container>
+        <!-- log In Form -->
+        <ng-container *ngIf="alredyHaveAccount">
+          <form [formGroup]="LogInFrom" (ngSubmit)="OnlogIn()">
+            <mat-form-field class="w-100" appearance="outline">
+              <mat-label>Email</mat-label>
+              <input type="text" formControlName="email" matInput />
+            </mat-form-field>
+            <mat-form-field class="w-100" appearance="outline">
+              <mat-label>Password</mat-label>
+              <input type="text" formControlName="password" matInput />
+            </mat-form-field>
+            <button mat-raised-button color="primary">Log In</button>
+          </form>
+        </ng-container>
+
+        <a href="javascript:;" (click)="alredyHaveAccount = !alredyHaveAccount">
+          {{
+            alredyHaveAccount ? " Don't Have Account" : "alredy Have Account"
+          }}</a
+        >
+      </mat-card-content>
+    </mat-card>
+  </main>
+</div>

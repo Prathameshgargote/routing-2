@@ -1,0 +1,30 @@
+.list-group-item{
+    cursor: pointer;
+}
+.user-list {
+  padding: 20px;
+  background-color: #fdfdfd;
+  border-radius: 16px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.user-item {
+  margin-bottom: 12px;
+  padding: 14px 20px;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  font-weight: 500;
+  color: #343a40;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.user-item:hover {
+  background-color: #e7f1ff;
+  box-shadow: 0 4px 20px rgba(0, 123, 255, 0.3);
+  color: #007bff;
+  transform: translateY(-2px);
+}

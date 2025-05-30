@@ -1,0 +1,19 @@
+<mat-card class="main_card">
+  <mat-card-header class="authgurd">
+    <mat-card-title>{{ userObj.userName }}u</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <p>User Role:{{ userObj.userRole }}</p>
+  </mat-card-content>
+  <mat-card-actions class="d-flex justify-content-between">
+    <button
+      mat-raised-button
+      color="primary"
+      routerLink="edit"
+      queryParamsHandling="preserve"
+    >
+      Edit
+    </button>
+    <button mat-raised-button color="warn" (click)="onremove()">Remove</button>
+  </mat-card-actions>
+</mat-card>

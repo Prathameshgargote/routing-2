@@ -1,0 +1,22 @@
+<div class="row mt-5">
+  <div class="col-md-12 text-right">
+    <button mat-raised-button color="primary" routerLink="add">Add Product</button>
+  </div>
+
+  <div class="col-md-6 product-list">
+  <ul class="list-group">
+    <li
+      class="list-group-item product-item"
+      [queryParams]="{ canReturn: prod.canReturn }"
+      [routerLink]="prod.PId"
+      *ngFor="let prod of productArr"
+    >
+      {{ prod.pName }}
+    </li>
+  </ul>
+</div>
+
+  <div class="col-md-6">
+    <router-outlet></router-outlet>
+  </div>
+</div>
