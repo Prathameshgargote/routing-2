@@ -58,7 +58,8 @@ export class ProdFormComponent implements OnInit,Icandeactivate {
   }
 
   onsubmit() {
-    if (this.Iseditmode) {
+  if(this.prodform.valid){
+      if (this.Iseditmode) {
       let updateobj = {
         ...this.prodform.value,
         canReturn: this.prodform.value['canReturn'] === 'yes' ? 1 : 0,
@@ -80,6 +81,7 @@ export class ProdFormComponent implements OnInit,Icandeactivate {
       this.prodform.reset();
       this._router.navigate(['product'])
     }
+  }
   }
 canDeactivete() {
     if (this.prodform.dirty && this.Iseditmode) {

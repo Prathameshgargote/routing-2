@@ -55,30 +55,32 @@ export class UserFormComponent implements OnInit, Icandeactivate {
   }
 
   onsubmit() {
-    if (this.Iseditmode) {
-      let updateobj = {
-        ...this.userForm.value,
-        userId: this.userId,
-      };
-      console.log(updateobj);
-      this._userservice.updateuser(updateobj);
-      this.snacknbar.opensnackbar(
-        `the ${updateobj.userName} is updated Successfully`
-      );
-      this.userForm.reset();
-      this._router.navigate(['user']);
-    } else {
-      let newobj = {
-        ...this.userForm.value,
-        userId: this._uuid.generateUuid(),
-      };
-      console.log(newobj);
-      this._userservice.Adduser(newobj);
-      this.snacknbar.opensnackbar(
-        `the ${newobj.userName} is added Successfully`
-      );
-      this.userForm.reset();
-      this._router.navigate(['user']);
+    if (this.userForm.valid) {
+      if (this.Iseditmode) {
+        let updateobj = {
+          ...this.userForm.value,
+          userId: this.userId,
+        };
+        console.log(updateobj);
+        this._userservice.updateuser(updateobj);
+        this.snacknbar.opensnackbar(
+          `the ${updateobj.userName} is updated Successfully`
+        );
+        this.userForm.reset();
+        this._router.navigate(['user']);
+      } else {
+        let newobj = {
+          ...this.userForm.value,
+          userId: this._uuid.generateUuid(),
+        };
+        console.log(newobj);
+        this._userservice.Adduser(newobj);
+        this.snacknbar.opensnackbar(
+          `the ${newobj.userName} is added Successfully`
+        );
+        this.userForm.reset();
+        this._router.navigate(['user']);
+      }
     }
   }
 

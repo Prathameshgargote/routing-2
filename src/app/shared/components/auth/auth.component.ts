@@ -39,28 +39,31 @@ export class AuthComponent implements OnInit {
   }
 
   onSignUp() {
-    let signup = this.SignUpFrom.value;
-    this._authservice.register(signup).subscribe({
-      next: (res) => {
-        console.log(res);
-        this._snackbar.opensnackbar(res.message);
-        this.alredyHaveAccount = true;
-        this.LogInFrom.reset();
-      },
-      error: (err) => {
-        console.log(err);
-        this._snackbar.opensnackbar(err.error.message);
-      },
-    });
+    if (this.SignUpFrom.valid) {
+      let signup = this.SignUpFrom.value;
+      this._authservice.register(signup).subscribe({
+        next: (res) => {
+          console.log(res);
+          this._snackbar.opensnackbar(res.message);
+          this.alredyHaveAccount = true;
+          this.LogInFrom.reset();
+        },
+        error: (err) => {
+          console.log(err);
+          this._snackbar.opensnackbar(err.error.message);
+        },
+      });
+    }
   }
 
   OnlogIn() {
-    let login = this.LogInFrom.value;
+ if(this.LogInFrom.valid){
+     let login = this.LogInFrom.value;
     console.log(login);
     this._authservice.LogIn(login).subscribe({
       next: (res) => {
         console.log(res);
-        this._authservice.loginSub$.next(true)
+        this._authservice.loginSub$.next(true);
         this._authservice.savetoekn(res.token);
         this._authservice.saveuserRole(res.userRole);
         this._snackbar.opensnackbar(res.message);
@@ -72,13 +75,13 @@ export class AuthComponent implements OnInit {
         this._snackbar.opensnackbar(err.error.message);
       },
     });
+ }
   }
 
-
-  get l(){
-    return this.LogInFrom.controls 
+  get l() {
+    return this.LogInFrom.controls;
   }
-   get s(){
-    return this.SignUpFrom.controls
+  get s() {
+    return this.SignUpFrom.controls;
   }
 }
